@@ -8,6 +8,12 @@
 
 #import "ViewController.h"
 
+@interface ViewController()
+
+@property(strong, nonatomic) StackOverflow *myStack;
+
+@end
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -30,6 +36,7 @@
     [self.myStack pushElement:[NSNumber numberWithInt:myNumber]];
     NSString *message = [NSString stringWithFormat:@"New element %d was added to stack", myNumber];
     [self.textField setStringValue:message];
+    
 }
 
 - (IBAction)pushButton:(id)sender
@@ -45,8 +52,4 @@
     
 }
 
-- (IBAction)activeAction:(id)sender
-{
-    [self.textField setStringValue:@""];
-}
 @end

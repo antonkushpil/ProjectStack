@@ -11,13 +11,10 @@
 
 @interface ViewController : NSViewController
 
-@property(strong, nonatomic) StackOverflow *myStack;
-
 @property (weak) IBOutlet NSTextField *textField;
+
 - (IBAction)okButton:(id)sender;
-@property (weak) IBOutlet NSTextField *label;
 - (IBAction)pushButton:(id)sender;
-- (IBAction)activeAction:(id)sender;
 
 @end
 

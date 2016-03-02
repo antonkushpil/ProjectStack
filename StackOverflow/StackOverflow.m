@@ -8,6 +8,12 @@
 
 #import "StackOverflow.h"
 
+@interface StackOverflow()
+
+@property (strong, nonatomic) NSMutableArray *myArray;
+
+@end
+
 @implementation StackOverflow
 
 - (id)init
@@ -16,29 +22,26 @@
     if(self)
     {
         self.myArray = [[NSMutableArray alloc] init];
-        self.arraySize = 0;
-        
     }
     return self;
 }
 
 - (void)pushElement:(NSNumber *)pushedNumber
 {
-    [self.myArray insertObject: pushedNumber atIndex:self.arraySize];
-    self.arraySize++;
-    NSLog(@"Element %d was added to stack, number of elements %d", [pushedNumber intValue], self.arraySize);
+    [self.myArray addObject: pushedNumber];
+    NSLog(@"Element %d was added to stack, number of elements %lu", [pushedNumber intValue], (unsigned long)self.myArray.count);
 }
 
 - (NSNumber *)popElement
 {
-    if (self.arraySize == 0)
+    if (self.myArray.count == 0)
     {
         return nil;
     }
-    NSNumber *lastElement = [self.myArray objectAtIndex:(self.arraySize-1)];
-    self.arraySize--;
-    NSLog(@"Element %d was removed from stack, number of elements %d",
-          [lastElement intValue], self.arraySize);
+    NSNumber *lastElement = [self.myArray lastObject];
+    
+    NSLog(@"Element %d was removed from stack, number of elements %lu",
+          [lastElement intValue], (unsigned long) self.myArray.count);
     [self.myArray removeLastObject];
     
     return lastElement;

@@ -10,9 +10,6 @@
 
 @interface StackOverflow : NSObject
 
-@property (assign, nonatomic) int arraySize;
-@property (strong, nonatomic) NSMutableArray *myArray;
-
 - (void)pushElement:(NSNumber *)pushedNumber;
 - (NSNumber *)popElement;
 
